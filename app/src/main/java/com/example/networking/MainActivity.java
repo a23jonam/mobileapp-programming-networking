@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         new JsonFile(this, this).execute(JSON_FILE);
 
         ArrayList<Mountain> Mountains = new ArrayList<>(Arrays.asList(
+                new Mountain("Kebnekaise","Sweden",2096),
                 new Mountain("Fuji","Japan",3776),
                 new Mountain("Matterhorn","Switzerland",4478),
                 new Mountain("Mont Blanc","Italy",4809),
