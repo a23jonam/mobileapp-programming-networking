@@ -17,6 +17,10 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         setContentView(R.layout.activity_main);
 
         new JsonFile(this, this).execute(JSON_FILE);
+
+        Mountain m = new Mountain ("K2");
+        Mountain m2 = new Mountain ("Fuji","Japan",3776);
+
     }
 
     @Override
