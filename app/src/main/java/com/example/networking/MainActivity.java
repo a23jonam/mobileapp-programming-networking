@@ -5,6 +5,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.*;
@@ -44,8 +45,14 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
             @Override
             public void onClick(RecyclerViewItem item) {
                 Toast.makeText(MainActivity.this, item.getTitle(), Toast.LENGTH_SHORT).show();
+
             }
         });
+
+        RecyclerView view = findViewById(R.id.recycler_view);
+        view.setLayoutManager(new LinearLayoutManager(this));
+        view.setAdapter(adapter);
+
     }
 
     @Override
