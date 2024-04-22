@@ -2,11 +2,16 @@ package com.example.networking;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 @SuppressWarnings("FieldCanBeLocal")
 public class MainActivity extends AppCompatActivity implements JsonTask.JsonTaskListener {
@@ -28,6 +33,16 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
                 new Mountain("Mont Blanc","Italy",4809),
                 new Mountain("Denali","USA",6190),
                 new Mountain("K2","Pakistan",8611)));
+
+        ArrayList<RecyclerViewItem> items = new ArrayList<>();
+
+
+        /*RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, items, new RecyclerViewAdapter.OnClickListener() {
+            @Override
+            public void onClick(RecyclerViewItem item) {
+                Toast.makeText(MainActivity.this, item.getTitle(), Toast.LENGTH_SHORT).show();
+            }
+        });*/
     }
 
     @Override
