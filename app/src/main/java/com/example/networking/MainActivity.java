@@ -35,14 +35,17 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
                 new Mountain("K2","Pakistan",8611)));
 
         ArrayList<RecyclerViewItem> items = new ArrayList<>();
+        for (Mountain mountain : mountains){
+            items.add(new RecyclerViewItem(mountain.getName()));
+        }
 
 
-        /*RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, items, new RecyclerViewAdapter.OnClickListener() {
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, items, new RecyclerViewAdapter.OnClickListener() {
             @Override
             public void onClick(RecyclerViewItem item) {
                 Toast.makeText(MainActivity.this, item.getTitle(), Toast.LENGTH_SHORT).show();
             }
-        });*/
+        });
     }
 
     @Override
