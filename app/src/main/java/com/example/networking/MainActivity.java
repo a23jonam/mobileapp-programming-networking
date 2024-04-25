@@ -32,10 +32,6 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Log.d("MountainLog onCreate_start", "");
-
-
-
             ArrayList<Mountain> mountains = new ArrayList<>(Arrays.asList(
                     new Mountain("Kebnekaise", "Sweden", 2096),
                     new Mountain("Fuji", "Japan", 3776),
@@ -49,7 +45,6 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
                 items.add(new RecyclerViewItem(mountain.getName()));
 
             }
-            //Log.d("MountainLog_RWIsize_onCreate:", items.size() + "");
 
             adapter = new RecyclerViewAdapter(this, mountains, new RecyclerViewAdapter.OnClickListener() {
                 @Override
@@ -68,19 +63,15 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
 
     @Override
     public void onPostExecute(String json) {
-        //Log.d("MountainLog MainActivity", json);
-
+            Log.d("Json_URL","" + json);
             Gson gson = new Gson();
             Type type = new TypeToken<List<Mountain>>() {
             }.getType();
             List<Mountain> listOfMountains = gson.fromJson(json, type);
 
             for (Mountain mountain : listOfMountains) {
-               // items.add(new RecyclerViewItem(mountain.getName()));
-                Log.d("MountainLog", mountain.getName());
             }
 
-            //Log.d("MountainLog_RWIsize_onPE:", items.size() + "");
             adapter.updateData(listOfMountains);
 
             adapter.notifyDataSetChanged();
