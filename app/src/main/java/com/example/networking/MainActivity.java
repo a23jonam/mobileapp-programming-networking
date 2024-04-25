@@ -39,16 +39,15 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
             ArrayList<Mountain> mountains = new ArrayList<>(Arrays.asList(
                     new Mountain("Kebnekaise", "Sweden", 2096),
                     new Mountain("Fuji", "Japan", 3776),
-                    new Mountain("Matterhorn", "Switzerland", 4478),
                     new Mountain("Mont Blanc", "Italy", 4809),
                     new Mountain("Denali", "USA", 6190),
+                    new Mountain("Kilimanjaro", "Tanzania", 5895),
                     new Mountain("K2", "Pakistan", 8611)));
 
             items = new ArrayList<>();
             for (Mountain mountain : mountains) {
                 items.add(new RecyclerViewItem(mountain.getName()));
 
-                //new JsonTask(this).execute(JSON_URL);
             }
             //Log.d("MountainLog_RWIsize_onCreate:", items.size() + "");
 
@@ -64,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements JsonTask.JsonTask
             view.setAdapter(adapter);
 
             new JsonFile(this, this).execute(JSON_FILE);
+            //new JsonTask(this).execute(JSON_URL);
     }
 
     @Override
